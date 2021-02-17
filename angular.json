@@ -25,12 +25,13 @@
             ],
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-                      "src/styles.css"
-                    ],
-                    "scripts": [ "./node_modules/jquery/dist/jquery.min.js",
-                      "./node_modules/popper.js/dist/umd/popper.min.js",
-                      "./node_modules/bootstrap/dist/js/bootstrap.min.js"
-                    ]
+              "src/styles.css"
+            ],
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/popper.js/dist/umd/popper.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -121,8 +122,13 @@
               "devServerTarget": "LPU-CAP917-MApp:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "LPU-CAP917-MApp"
 }
