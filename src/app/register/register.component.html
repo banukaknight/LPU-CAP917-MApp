@@ -1,1 +1,193 @@
-<p>register works!</p>
+<div style=" display: flex; justify-content: center; background-image: url('../../assets/ca1/bg1.png');">
+<div  class='form-container m-4 bg-info p-4 w-50' style="min-width:400px">
+    <h3>Fiesty Fried Chicken - Reservations <span class="spinner-grow text-primary" role="status"></span> </h3>
+    <form #userForm='ngForm'>
+
+      <div class="form-group w-100">
+        <label for="">Full Name*</label>
+        <input required minlength='3' type="text" class="form-control form-control-sm" name="fname" #TRname=ngModel [(ngModel)]="myObj1.sname">
+        <div class="alert alert-danger py-1" *ngIf="!TRname.valid && TRname.touched">
+          <span *ngIf="TRname.errors.required">Name is required</span>
+          <span *ngIf="TRname.errors.minlength">Minimum name length: 3</span>
+        </div>
+      </div>
+
+      <div class="form-group w-100">
+        <label for="">Email*</label>
+        <input required type="email" class="form-control form-control-sm" name="femail" email #TRemail=ngModel [(ngModel)]="myObj1.semail">
+        <div class="alert alert-danger py-1" *ngIf="!TRemail.valid && TRemail.touched">
+          <span *ngIf="TRemail.errors.required">Email is required</span>
+          <span *ngIf="!TRemail.errors.required && !TRemail.errors.valid">Email is not valid</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group w-100 col-6">
+          <label for="fphone">Phone Number*</label>
+          <input required pattern='[0-9]{10}' type="text" class="form-control form-control-sm" name="fphone" id="fphone" #TRphone=ngModel [(ngModel)]="myObj1.sphone">
+          <div class="alert alert-danger py-1" *ngIf="!TRphone.valid && TRphone.touched">
+            <span *ngIf="TRphone.errors.required">Phone number is mandatory</span>
+            <span *ngIf="TRphone.errors.pattern">Phone number must be 10 digits</span>
+          </div>
+        </div>
+
+        <div class="form-group w-100 col-6">
+          <label for="">No. of Guests*</label>
+          <input required pattern='^[1-9]$|^[1-9][0-9]$|^(100)$' type="number" class="form-control form-control-sm" name="fguests" #TRguests=ngModel [(ngModel)]="myObj1.sguests">
+          <div class="alert alert-danger py-1" *ngIf="TRguests.touched && !TRguests.valid">
+            <span *ngIf="!TRguests.valid">Guests number must be between 1-100</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="form-group w-100">
+        <label for="">Meal Type* </label>
+        <div class="form-control form-control-sm">
+
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+            <input required class="form-check-input" type="radio" name="ftype" value="Breakfast" [(ngModel)]="myObj1.stype">
+            Breakfast</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="ftype" value="Lunch" [(ngModel)]="myObj1.stype">
+            Lunch</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="ftype" value="Dinner" [(ngModel)]="myObj1.stype">
+            Dinner</label>
+          </div>
+
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="form-group w-100 col-6">
+
+          <label for="fmain">Choose a main course:</label>
+          <select required name="fmain" id="fmain" #TRmain=ngModel [(ngModel)]="myObj1.smain" class="form-control form-control-sm" >
+            <option value="Fried Chicken">Fried Chicken</option>
+            <option value="Hot Wings">Hot Wings</option>
+            <option value="Chicken with Rice">Chicken with Rice</option>
+            <option value="Bonless Chicken">Bonless Chicken</option>
+          </select>
+
+
+        </div>
+
+        <div class="form-group w-100 col-6">
+          <label for="">Payment Method</label>
+
+          <select required name="fpay" id="fpay" #TRpay=ngModel [(ngModel)]="myObj1.spay" size="3" class="form-control form-control-sm">
+            <option value="Visa">Visa</option>
+            <option value="Mastercard">Mastercard</option>
+            <option value="American Express">American Express</option>
+            <option value="Cash">Cash</option>
+            
+            </select>
+
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="form-group w-100 col-6">
+          <label for="">Date*</label>
+          <input required class="form-control form-control-sm" type="date" name="fdate" [(ngModel)]="myObj1.sdate">
+        </div>
+        <div class="form-group w-100 col-6">
+          <label for="">Time*</label>
+          <input required class="form-control form-control-sm" type="time" name="ftime" [(ngModel)]="myObj1.stime">
+        </div>
+      </div>
+
+      <div class="form-check">
+        <label class="form-check-label">
+        <input required type="checkbox" class="form-check-input" name="fupdate" [(ngModel)]="myObj1.sagree" title="Hello There!">
+        Agree to Terms & Conditions*</label>
+      </div> <br>
+
+      <input [disabled]="userForm.form.invalid" class="btn btn-primary form-group w-50" type="submit" value="Register" data-toggle="modal" data-target="#exampleModalCenter">
+
+      <span *ngIf="userForm.form.invalid; then temp1 else temp2"></span>
+      <ng-template #temp1>
+		<span class="spinner-border spinner-border-sm text-white" role="status"></span>
+        <small>*Required fields Incomplete </small>
+      </ng-template>
+      <ng-template #temp2>
+        <i>PLEASE SUBMIT</i>
+      </ng-template>
+    </form>
+
+    <marquee direction="right">Form by Banuka</marquee>
+  </div>
+
+
+<!-- extra stuff -->
+
+
+
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content  bg-default ">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLongTitle">Reservation Details</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <table class="table table-dark table-bordered table-sm" striped="true">
+            <tr>
+              <th>Full Name</th>
+              <td>{{myObj1.sname}}</td>
+            </tr>
+            <tr>
+              <th>Email</th>
+              <td>{{myObj1.semail}}</td>
+            </tr>
+            <tr>
+              <th>Phone Number</th>
+              <td>{{myObj1.sphone}}</td>
+            </tr>
+            <tr>
+              <th>No of Guests</th>
+              <td>{{myObj1.sguests}}</td>
+            </tr>
+            <tr>
+              <th>Type of Meal</th>
+              <td>{{myObj1.stype}}</td>
+            </tr>
+            <tr>
+              <th>Date</th>
+              <td>{{myObj1.sdate}}</td>
+            </tr>
+            <tr>
+              <th>Time</th>
+              <td>{{myObj1.stime}}</td>
+            </tr>
+            <tr>
+              <td>Agreed to terms</td>
+              <td>{{myObj1.sagree}}</td>
+            </tr>
+
+          </table>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Confirm Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
