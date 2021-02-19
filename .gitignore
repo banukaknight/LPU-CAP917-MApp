@@ -1,9 +1,8 @@
 # BK's ignore stuff
 /CA
-/home
-/login
-/register
 
+src/app/home/
+src/app/register/
 
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
