@@ -4,7 +4,7 @@ src/app/home/
 src/app/login/
 src/app/register/
 app.component.html
-home/
+**/home/
 login/
 register/
 
