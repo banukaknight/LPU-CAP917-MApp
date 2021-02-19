@@ -5,10 +5,11 @@
 
       <div class="form-group w-100">
         <label for="">Full Name*</label>
-        <input required minlength='3' type="text" class="form-control form-control-sm" name="fname" #TRname=ngModel [(ngModel)]="myObj1.sname">
+        <input required minlength='3' pattern='^[a-zA-Z ]*$' type="text" class="form-control form-control-sm" name="fname" #TRname=ngModel [(ngModel)]="myObj1.sname">
         <div class="alert alert-danger py-1" *ngIf="!TRname.valid && TRname.touched">
           <span *ngIf="TRname.errors.required">Name is required</span>
           <span *ngIf="TRname.errors.minlength">Minimum name length: 3</span>
+          <span *ngIf="TRname.errors.pattern">Name must only contain alphabet</span>
         </div>
       </div>
 
@@ -188,6 +189,5 @@
       </div>
     </div>
   </div>
-
 
 </div>
