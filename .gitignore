@@ -1,12 +1,12 @@
 #BK's ignore stuff
 CA/
-/src/app/home/
-/src/app/login/
-/src/app/register/
-/src/app/app.component.html
-/home/
-/login/
-/register/
+src/app/home/
+src/app/login/
+src/app/register/
+app.component.html
+home/
+login/
+register/
 
 
 # See http://help.github.com/ignore-files/ for more about ignoring files.
