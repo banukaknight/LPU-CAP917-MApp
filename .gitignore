@@ -3,8 +3,7 @@ CA/
 # TS_CA/
 src/app/home/
 src/app/about/
-
-
+/login
 
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
