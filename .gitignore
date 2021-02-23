@@ -4,6 +4,7 @@ CA/
 src/app/home/
 src/app/about/
 /login
+about.component.html
 
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
